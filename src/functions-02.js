@@ -69,7 +69,7 @@ const store = {
    * @returns {string} - the name of the store
    */
   getName() {
-    // write your code here & return value
+    return store.name;
   },
   /**
    * Returns the inventory of the store
@@ -77,7 +77,7 @@ const store = {
    * @returns {array} - the inventory of the store
    */
   getInventory() {
-    // write your code here & return value
+    return inventory;
   },
   /**
    * Returns an arrays of most expensive items in inventory
@@ -86,7 +86,8 @@ const store = {
    * @return {array} items - the array of items that are filtered
    */
   getExpensiveItems(minPrice) {
-    // write your code here & return value
+    const filteredItems = inventory.filter((item) => item.price >= minPrice);
+    return filteredItems;
   },
   /**
    * Returns an array of item names in store
@@ -94,7 +95,8 @@ const store = {
    * @return {array} items - the array of items that are filtered
    */
   getStoreItems() {
-    // write your code here & return value
+    const itemNames = inventory.map((item) => item.name);
+    return itemNames;
   },
   /**
    * Returns true if the item is in the store
@@ -104,7 +106,8 @@ const store = {
    * false otherwise
    */
   isItemInStore(itemName) {
-    // write your code here & return value
+    const inStore = inventory.some((item) => item.name === itemName);
+    return inStore;
   },
   /**
    * Returns the price of the item
@@ -115,7 +118,11 @@ const store = {
    * must use isItemInStore() method in this object
    */
   getItemPrice(itemName) {
-    // write your code here & return value
+    const inStore = inventory.some((item) => item.name === itemName);
+    if (inStore) {
+      return inventory.price;
+    }
+    return -1;
   },
 
   /**

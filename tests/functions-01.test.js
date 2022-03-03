@@ -44,4 +44,4 @@ test('saveLogin', () => {
   expect(findLogin()).toBe('Gizmo');
   findLogin = saveLogin('StarPuppy');
   expect(findLogin()).toBe('StarPuppy');
-})
+});
