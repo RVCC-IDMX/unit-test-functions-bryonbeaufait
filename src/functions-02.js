@@ -178,9 +178,10 @@ const store = {
   removeItemQuantity(itemName, quantity) {
     const inStore = this.isItemInStore(itemName);
     if (inStore) {
-      if (inventory.quantity > quantity) {
-        const foundItem = inventory.find((item) => item.name === itemName);
-        return foundItem.quantity - quantity;
+      const foundItem = inventory.find((item) => item.name === itemName);
+      if (foundItem.quantity > quantity) {
+        foundItem.quantity -= quantity;
+        return foundItem.quantity;
       }
       return -1;
     }
